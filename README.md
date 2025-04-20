@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Prompt Library | Business, Coding, Design & More</title>
+    <title>AI Prompt Generator Pro | Monetize Your AI Workflow</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,23 +12,24 @@
             --dark: #1e1e2c;
             --light: #f5f5fa;
             --success: #4CAF50;
+            --warning: #FF9800;
         }
         * {
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
         }
         body {
             background: linear-gradient(135deg, var(--light) 0%, #e6e6f0 100%);
             color: var(--dark);
             line-height: 1.6;
+            padding: 0;
+            margin: 0;
             min-height: 100vh;
         }
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem;
         }
         header {
             text-align: center;
@@ -37,145 +38,162 @@
         h1 {
             color: var(--primary);
             margin-bottom: 0.5rem;
-            font-size: 2.2rem;
         }
         .tagline {
             color: var(--secondary);
             font-weight: 500;
-            font-size: 1.1rem;
         }
-        /* Quick Navigation */
-        .category-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        .category-nav a {
-            background: rgba(110, 72, 170, 0.1);
-            color: var(--primary);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        .category-nav a:hover {
-            background: var(--primary);
-            color: white;
-        }
-        /* Search */
+        /* Search Bar */
         .search-container {
-            margin: 1.5rem auto 2rem;
-            max-width: 800px;
-            position: relative;
+            margin: 1.5rem auto;
+            max-width: 600px;
         }
         #searchInput {
             width: 100%;
-            padding: 14px 20px 14px 50px;
+            padding: 12px 20px;
             border: 2px solid #ddd;
             border-radius: 50px;
             font-size: 1rem;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%236e48aa" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 15px center;
+            padding-left: 45px;
         }
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary);
-        }
-        /* Category Sections */
-        .category-section {
-            margin: 3rem 0;
-            scroll-margin-top: 20px;
-        }
-        .category-title {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1.5rem;
+        /* Tool Selector */
+        .tool-selector {
             display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.5rem;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
         }
-        .category-title i {
-            font-size: 1.3rem;
+        .tool-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-        /* Prompt Cards */
-        .prompt-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
+        .tool-btn.active, .tool-btn:hover {
+            background: var(--primary);
+            color: white;
         }
-        .prompt-card {
+        /* Prompt Container */
+        .prompt-container {
             background: white;
             border-radius: 10px;
-            padding: 1.8rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .prompt-card {
+            background: #f9f9ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
             position: relative;
+            transition: transform 0.2s;
         }
         .prompt-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
         }
         .prompt-card h3 {
+            margin-top: 0;
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.4;
         }
-        .prompt-card p {
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
+        .prompt-actions {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 5px;
         }
-        .copy-btn {
+        .action-btn {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0.6rem 1.2rem;
+            width: 30px;
+            height: 30px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            width: 100%;
             justify-content: center;
+            transition: all 0.3s;
         }
-        .copy-btn:hover {
+        .action-btn:hover {
             background: var(--secondary);
         }
-        .copy-btn.copied {
+        .action-btn.favorite {
+            background: #ffc107;
+            color: var(--dark);
+        }
+        .action-btn.copied {
             background: var(--success);
         }
-        /* Ad Spaces */
+        /* Ad Space (For Monetization) */
         .ad-space {
-            background: #f8f9fa;
+            background: #f0f0f0;
             border: 1px dashed #ccc;
-            padding: 1.5rem;
+            padding: 1rem;
             text-align: center;
-            margin: 3rem 0;
-            border-radius: 8px;
+            margin: 2rem 0;
+            border-radius: 5px;
         }
-        .ad-space p {
-            color: #666;
-            font-style: italic;
+        /* Premium CTA */
+        .premium-cta {
+            background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(255,152,0,0.3);
         }
-        /* Responsive */
+        .premium-btn {
+            background: white;
+            color: var(--warning);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .premium-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        /* Favorites Tab */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .tab {
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+        }
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+        }
         @media (max-width: 768px) {
-            .prompt-grid {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 1rem;
             }
-            .category-title {
-                font-size: 1.3rem;
+            .tool-selector {
+                gap: 5px;
+            }
+            .tool-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -183,108 +201,278 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-robot"></i> AI Prompt Library</h1>
-            <p class="tagline">Strategic prompts for ChatGPT, Midjourney & more</p>
+            <h1><i class="fas fa-robot"></i> AI Prompt Generator Pro</h1>
+            <p class="tagline">Boost your AI productivity with expert-curated prompts</p>
         </header>
 
-        <!-- Ad Space -->
+        <!-- Ad Space (Monetization) -->
         <div class="ad-space">
-            <p>Advertisement Space (Place Google AdSense or affiliate links here)</p>
+            <p>Advertisement</p>
+            <!-- Paste Google AdSense code here -->
         </div>
 
-        <!-- Quick Navigation -->
-        <div class="category-nav">
-            <a href="#business"><i class="fas fa-briefcase"></i> Business</a>
-            <a href="#coding"><i class="fas fa-code"></i> Coding</a>
-            <a href="#design"><i class="fas fa-paint-brush"></i> Design</a>
-            <a href="#writing"><i class="fas fa-pen"></i> Writing</a>
-            <a href="#marketing"><i class="fas fa-bullhorn"></i> Marketing</a>
-            <a href="#art"><i class="fas fa-palette"></i> Art</a>
-            <a href="#productivity"><i class="fas fa-tasks"></i> Productivity</a>
-            <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-            <a href="#health"><i class="fas fa-heartbeat"></i> Health</a>
-            <a href="#fun"><i class="fas fa-gamepad"></i> Fun</a>
-        </div>
-
-        <!-- Search -->
+        <!-- Search Bar -->
         <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" placeholder="Search prompts (e.g., 'marketing', 'Python', 'design')...">
+            <input type="text" id="searchInput" placeholder="Search prompts (e.g., 'marketing', 'code')...">
         </div>
 
-        <!-- Business Prompts -->
-        <div class="category-section" id="business">
-            <h2 class="category-title">
-                <i class="fas fa-briefcase"></i> Business
-            </h2>
-            <div class="prompt-grid" id="businessPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
+        <!-- Tabs -->
+        <div class="tab-container">
+            <div class="tab active" data-tab="all">All Prompts</div>
+            <div class="tab" data-tab="favorites">Favorites</div>
         </div>
 
-        <!-- Coding Prompts -->
-        <div class="category-section" id="coding">
-            <h2 class="category-title">
-                <i class="fas fa-code"></i> Coding
-            </h2>
-            <div class="prompt-grid" id="codingPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
+        <!-- Tool Filter -->
+        <div class="tool-selector">
+            <button class="tool-btn active" data-tool="all">All Tools</button>
+            <button class="tool-btn" data-tool="chatgpt">ChatGPT</button>
+            <button class="tool-btn" data-tool="midjourney">Midjourney</button>
+            <button class="tool-btn" data-tool="dalle">DALL·E</button>
+            <button class="tool-btn" data-tool="claude">Claude</button>
         </div>
 
-        <!-- Design Prompts -->
-        <div class="category-section" id="design">
-            <h2 class="category-title">
-                <i class="fas fa-paint-brush"></i> Design
-            </h2>
-            <div class="prompt-grid" id="designPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
+        <!-- Prompt Container -->
+        <div class="prompt-container" id="promptContainer">
+            <!-- Prompts will load here -->
         </div>
 
-        <!-- Writing Prompts -->
-        <div class="category-section" id="writing">
-            <h2 class="category-title">
-                <i class="fas fa-pen"></i> Writing
-            </h2>
-            <div class="prompt-grid" id="writingPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
+        <!-- Premium CTA -->
+        <div class="premium-cta">
+            <h3><i class="fas fa-crown"></i> Unlock 1000+ Premium Prompts</h3>
+            <p>Get access to our exclusive library with advanced AI templates for business, art, and coding.</p>
+            <button class="premium-btn">Get Premium - $9.99/month</button>
         </div>
 
-        <!-- Marketing Prompts -->
-        <div class="category-section" id="marketing">
-            <h2 class="category-title">
-                <i class="fas fa-bullhorn"></i> Marketing
-            </h2>
-            <div class="prompt-grid" id="marketingPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
+        <!-- Another Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement</p>
         </div>
+    </div>
 
-        <!-- Art Prompts -->
-        <div class="category-section" id="art">
-            <h2 class="category-title">
-                <i class="fas fa-palette"></i> Art
-            </h2>
-            <div class="prompt-grid" id="artPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
-        </div>
+    <script>
+        // ======================
+        // PROMPT DATABASE
+        // ======================
+        const prompts = [
+            {
+                id: 1,
+                tool: "chatgpt",
+                title: "Marketing Expert",
+                text: "Act as a marketing expert with 10 years of experience. Create a comprehensive social media strategy for a [industry] business targeting [audience]. Include content ideas, posting schedule, and growth tactics.",
+                category: "Marketing",
+                premium: false
+            },
+            {
+                id: 2,
+                tool: "chatgpt",
+                title: "Code Debugger",
+                text: "You are a senior software engineer. Analyze this code snippet and identify potential bugs or optimizations: [paste code]. Explain your reasoning step-by-step.",
+                category: "Programming",
+                premium: false
+            },
+            {
+                id: 3,
+                tool: "midjourney",
+                title: "Cyberpunk Cityscape",
+                text: "A futuristic cyberpunk city at night, neon lights reflecting on wet streets, towering skyscrapers with holographic advertisements, rain falling, cinematic lighting, 8k ultra-detailed, artstation trending.",
+                category: "Art",
+                premium: true
+            },
+            {
+                id: 4,
+                tool: "midjourney",
+                title: "Portrait Photography",
+                text: "Professional portrait of a [description] person, studio lighting, 85mm lens, shallow depth of field, Hasselblad medium format film look, ultra-realistic skin texture, fashion magazine style.",
+                category: "Photography",
+                premium: false
+            },
+            {
+                id: 5,
+                tool: "dalle",
+                title: "Product Concept",
+                text: "A futuristic [product] with sleek minimalist design, rendered in a bright studio environment with clean shadows, isometric perspective, pastel color palette, 3D render style.",
+                category: "Design",
+                premium: true
+            },
+            {
+                id: 6,
+                tool: "claude",
+                title: "Legal Document Review",
+                text: "Analyze this legal contract clause: [paste text]. Identify potential issues, ambiguous language, and suggest clearer alternatives while maintaining legal validity.",
+                category: "Legal",
+                premium: false
+            }
+        ];
 
-        <!-- Productivity Prompts -->
-        <div class="category-section" id="productivity">
-            <h2 class="category-title">
-                <i class="fas fa-tasks"></i> Productivity
-            </h2>
-            <div class="prompt-grid" id="productivityPrompts">
-                <!-- Prompts will be inserted here by JavaScript -->
-            </div>
-        </div>
+        // ======================
+        // APP STATE
+        // ======================
+        let state = {
+            currentTool: 'all',
+            currentTab: 'all',
+            searchQuery: '',
+            favorites: JSON.parse(localStorage.getItem('favorites')) || []
+        };
 
-        <!-- Education Prompts -->
-        <div class="category-section" id="education">
-            <h2 class="category-title">
-                <i class="fas fa-graduation-cap"></i> Education
-            </h2>
-            <div class="
+        // ======================
+        // DOM ELEMENTS
+        // ======================
+        const promptContainer = document.getElementById('promptContainer');
+        const toolBtns = document.querySelectorAll('.tool-btn');
+        const tabs = document.querySelectorAll('.tab');
+        const searchInput = document.getElementById('searchInput');
+
+        // ======================
+        // INITIALIZE APP
+        // ======================
+        function init() {
+            displayPrompts();
+            setupEventListeners();
+        }
+
+        // ======================
+        // EVENT LISTENERS
+        // ======================
+        function setupEventListeners() {
+            // Tool filter buttons
+            toolBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    toolBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    state.currentTool = btn.dataset.tool;
+                    displayPrompts();
+                });
+            });
+
+            // Tabs
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    state.currentTab = tab.dataset.tab;
+                    displayPrompts();
+                });
+            });
+
+            // Search
+            searchInput.addEventListener('input', (e) => {
+                state.searchQuery = e.target.value.toLowerCase();
+                displayPrompts();
+            });
+
+            // Premium button click (for monetization tracking)
+            document.querySelector('.premium-btn').addEventListener('click', () => {
+                alert('Redirect to your payment processor (Gumroad, Stripe, etc.)');
+                // In a real app, track this conversion event
+            });
+        }
+
+        // ======================
+        // DISPLAY PROMPTS
+        // ======================
+        function displayPrompts() {
+            promptContainer.innerHTML = '';
+            
+            let filteredPrompts = [...prompts];
+
+            // Apply tool filter
+            if (state.currentTool !== 'all') {
+                filteredPrompts = filteredPrompts.filter(
+                    prompt => prompt.tool === state.currentTool
+                );
+            }
+
+            // Apply tab filter (favorites)
+            if (state.currentTab === 'favorites') {
+                filteredPrompts = filteredPrompts.filter(
+                    prompt => state.favorites.includes(prompt.id)
+                );
+            }
+
+            // Apply search
+            if (state.searchQuery) {
+                filteredPrompts = filteredPrompts.filter(prompt => 
+                    prompt.title.toLowerCase().includes(state.searchQuery) || 
+                    prompt.text.toLowerCase().includes(state.searchQuery) ||
+                    prompt.category.toLowerCase().includes(state.searchQuery)
+                );
+            }
+
+            // Show message if no prompts
+            if (filteredPrompts.length === 0) {
+                promptContainer.innerHTML = `
+                    <div style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                        <p>No prompts found. Try a different search or filter.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Display prompts
+            filteredPrompts.forEach(prompt => {
+                const isFavorite = state.favorites.includes(prompt.id);
+                
+                const promptCard = document.createElement('div');
+                promptCard.className = 'prompt-card';
+                
+                // Premium badge
+                const premiumBadge = prompt.premium 
+                    ? '<span style="background: #ff9800; color: white; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin-left: 0.5rem;">PREMIUM</span>'
+                    : '';
+                
+                promptCard.innerHTML = `
+                    <h3>${prompt.title} ${premiumBadge}</h3>
+                    <p><strong>Category:</strong> ${prompt.category}</p>
+                    <p>${prompt.text}</p>
+                    <div class="prompt-actions">
+                        <button class="action-btn favorite-btn ${isFavorite ? 'favorite' : ''}" 
+                                data-id="${prompt.id}" title="${isFavorite ? 'Remove favorite' : 'Add favorite'}">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="action-btn copy-btn" title="Copy prompt">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                `;
+                
+                promptContainer.appendChild(promptCard);
+
+                // Add event listeners
+                const favoriteBtn = promptCard.querySelector('.favorite-btn');
+                const copyBtn = promptCard.querySelector('.copy-btn');
+
+                favoriteBtn.addEventListener('click', () => toggleFavorite(prompt.id));
+                copyBtn.addEventListener('click', () => copyPrompt(prompt.text, copyBtn));
+            });
+        }
+
+        // ======================
+        // CORE FUNCTIONS
+        // ======================
+        function toggleFavorite(promptId) {
+            const index = state.favorites.indexOf(promptId);
+            if (index === -1) {
+                state.favorites.push(promptId);
+            } else {
+                state.favorites.splice(index, 1);
+            }
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
+            displayPrompts();
+        }
+
+        function copyPrompt(text, button) {
+            navigator.clipboard.writeText(text);
+            button.innerHTML = '<i class="fas fa-check"></i>';
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-copy"></i>';
+                button.classList.remove('copied');
+            }, 2000);
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
