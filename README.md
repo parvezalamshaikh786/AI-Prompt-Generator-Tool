@@ -3,461 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>500+ AI Prompt Library | ChatGPT, Midjourney & More</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #6e48aa;
-            --secondary: #9d50bb;
-            --dark: #1e1e2c;
-            --light: #f5f5fa;
-            --success: #4CAF50;
-        }
-        * {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, var(--light) 0%, #e6e6f0 100%);
-            color: var(--dark);
-            line-height: 1.6;
-            padding: 0;
-            margin: 0;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        h1 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        .tagline {
-            color: var(--secondary);
-            font-weight: 500;
-        }
-        /* Quick Category Nav */
-        .category-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            margin: 1.5rem 0;
-        }
-        .category-nav a {
-            background: rgba(110, 72, 170, 0.1);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .category-nav a:hover {
-            background: var(--primary);
-            color: white;
-        }
-        /* Search */
-        .search-container {
-            margin: 1.5rem auto;
-            max-width: 800px;
-        }
-        #searchInput {
-            width: 100%;
-            padding: 12px 20px;
-            border: 2px solid #ddd;
-            border-radius: 50px;
-            font-size: 1rem;
-            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%236e48aa" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 15px center;
-            padding-left: 45px;
-        }
-        /* Prompt Grid */
-        .prompt-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .prompt-card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .prompt-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
-        .prompt-card h3 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-        .prompt-card .category {
-            display: inline-block;
-            background: #f0e6ff;
-            color: var(--primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-bottom: 0.8rem;
-        }
-        .prompt-card .tools {
-            margin-top: 0.8rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-        .prompt-card .tool {
-            background: #f0f0f0;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        .prompt-card .actions {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .copy-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .copy-btn:hover {
-            background: var(--secondary);
-        }
-        .copy-btn.copied {
-            background: var(--success);
-        }
-        /* Category Section */
-        .category-section {
-            margin: 3rem 0;
-        }
-        .category-title {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        /* Ad Space */
-        .ad-space {
-            background: #f5f5f5;
-            border: 1px dashed #ccc;
-            padding: 1.5rem;
-            text-align: center;
-            margin: 3rem 0;
-            border-radius: 8px;
-        }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            .prompt-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>500+ AI Prompt Library</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-robot"></i> 500+ AI Prompt Library</h1>
-            <p class="tagline">Strategic prompts for ChatGPT, Midjourney, DALL-E & more</p>
-        </header>
+    <h1>500+ AI Prompt Library</h1>
 
-        <!-- Ad Space -->
-        <div class="ad-space">
-            <p>Advertisement Space (Place Google AdSense or affiliate links here)</p>
-        </div>
+    <h2>Business</h2>
+    <ul>
+        <li>Act as a business strategist with over 15 years of experience. Develop a roadmap for scaling a tech startup that focuses on AI-driven solutions for e-commerce.</li>
+        <li>Act as a seasoned entrepreneur and provide a detailed market entry strategy for a new SaaS product aimed at small to mid-sized businesses in the health industry.</li>
+        <li>Act as a business consultant and identify 5 untapped growth opportunities for a medium-sized company in the logistics sector. Provide a step-by-step plan for execution.</li>
+        <li>Act as a management expert with 20 years in team leadership. Create an employee engagement plan that fosters innovation and collaboration in a remote-first company.</li>
+        <li>Act as a corporate strategist and analyze the competitive landscape for an e-commerce business selling eco-friendly products. What strategic moves should they consider to outperform competitors?</li>
+        <li>Act as a brand consultant and suggest a comprehensive brand positioning strategy for a new fintech startup aiming to target millennials.</li>
+        <li>Act as a product manager with over 10 years in the tech industry. Outline a roadmap for launching a new product in the AR/VR space, including feature prioritization and market testing.</li>
+        <li>Act as a financial analyst and create a detailed financial projection model for a newly established SaaS business. Include revenue, expenses, and growth assumptions for the next 5 years.</li>
+        <li>Act as a strategic marketing leader and devise a viral marketing campaign targeting Gen Z consumers for a new vegan cosmetics brand.</li>
+        <li>Act as an expert in business development. Suggest 5 new revenue streams for a traditional brick-and-mortar retail business looking to diversify its income sources.</li>
+    </ul>
 
-        <!-- Quick Category Navigation -->
-        <div class="category-nav">
-            <a href="#business">Business</a>
-            <a href="#coding">Coding</a>
-            <a href="#design">Design</a>
-            <a href="#writing">Writing</a>
-            <a href="#marketing">Marketing</a>
-            <a href="#art">Art</a>
-            <a href="#productivity">Productivity</a>
-            <a href="#education">Education</a>
-            <a href="#health">Health</a>
-            <a href="#fun">Fun</a>
-        </div>
+    <h2>Coding</h2>
+    <ul>
+        <li>Act as a senior software engineer with 15 years of experience. Debug this JavaScript code and provide suggestions for improvement: [paste code].</li>
+        <li>Act as a programming mentor and create a learning path for a beginner who wants to master Python in 6 months. Include resources and projects.</li>
+        <li>Act as a full-stack developer. Suggest 5 improvements to optimize the performance of a Node.js backend API serving a large user base.</li>
+        <li>Act as a coding tutor with expertise in React. Provide a tutorial on how to implement lazy loading for a React application with code examples.</li>
+        <li>Act as a data scientist. Outline a step-by-step guide on how to clean and preprocess a messy dataset in Python using Pandas and NumPy.</li>
+        <li>Act as a senior developer with deep expertise in database optimization. Provide advice on how to speed up SQL queries for large datasets and improve indexing.</li>
+        <li>Act as a front-end engineer with 10 years of experience. Suggest 5 best practices for creating responsive UI/UX designs in React.</li>
+        <li>Act as a senior Android developer. Explain the process of implementing push notifications in a Kotlin-based app, and offer tips for improving delivery rates.</li>
+        <li>Act as a cloud architect. Design an AWS infrastructure for hosting a scalable and secure e-commerce platform, ensuring cost-efficiency and high availability.</li>
+        <li>Act as an experienced DevOps engineer. Suggest strategies for automating the deployment of microservices with Docker and Kubernetes.</li>
+    </ul>
 
-        <!-- Search -->
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search 500+ prompts (e.g., 'marketing', 'Python', 'logo design')...">
-        </div>
+    <h2>Design</h2>
+    <ul>
+        <li>Act as a product designer. Design a user-friendly onboarding experience for a new meditation app that guides users through the setup process with minimal friction.</li>
+        <li>Act as a graphic designer. Develop a series of illustrations for an online fitness program that targets beginners, using vibrant and energetic color schemes.</li>
+        <li>Act as a UI/UX designer. Create a design for an e-commerce checkout page, focusing on reducing cart abandonment with clear CTA buttons, progress indicators, and secure payment options.</li>
+        <li>Act as a packaging designer. Create an eco-friendly packaging design for a line of organic skincare products, including considerations for sustainability and visual appeal.</li>
+        <li>Act as a brand designer. Design a visual identity for a tech startup specializing in virtual reality gaming, including logo, typography, and website layout.</li>
+    </ul>
 
-        <!-- Business Prompts (50) -->
-        <div class="category-section" id="business">
-            <h2 class="category-title"><i class="fas fa-briefcase"></i> Business (50 Prompts)</h2>
-            <div class="prompt-grid" id="businessPrompts"></div>
-        </div>
+    <h2>Writing</h2>
+    <ul>
+        <li>Act as a creative writing coach with a decade of experience. Develop a writing prompt that helps generate compelling character backstories for a dystopian novel.</li>
+        <li>Act as an author specializing in fantasy fiction. Write a character profile for a reluctant hero who embarks on a quest to save a mythical realm.</li>
+        <li>Act as a journalist. Develop a pitch for an article on sustainable fashion, focusing on key industry trends and emerging brands.</li>
+        <li>Act as a novelist. Write the first 500 words of a novel that starts with the sentence, “The last time I saw him, it was under the flickering streetlights.”</li>
+        <li>Act as a screenwriter. Outline the plot for a suspense-thriller movie set in a small coastal town. Focus on the main conflict and twist ending.</li>
+    </ul>
 
-        <!-- Coding Prompts (50) -->
-        <div class="category-section" id="coding">
-            <h2 class="category-title"><i class="fas fa-code"></i> Coding (50 Prompts)</h2>
-            <div class="prompt-grid" id="codingPrompts"></div>
-        </div>
+    <h2>Marketing</h2>
+    <ul>
+        <li>Act as a digital marketing strategist with over 10 years of experience. Develop a social media campaign targeting millennials for a new fitness brand.</li>
+        <li>Act as a content marketing expert. Create a blog post outline for a tech company’s website about the benefits of AI in streamlining business processes.</li>
+        <li>Act as a brand consultant. Suggest 5 strategies for repositioning a legacy brand to attract a younger demographic.</li>
+        <li>Act as a social media manager. Develop a month-long Instagram content calendar for a new vegan bakery, including post ideas and captions.</li>
+        <li>Act as a marketing guru. Develop a comprehensive influencer marketing strategy for a new sustainable fashion brand, including influencer selection and campaign goals.</li>
+    </ul>
 
-        <!-- Design Prompts (50) -->
-        <div class="category-section" id="design">
-            <h2 class="category-title"><i class="fas fa-paint-brush"></i> Design (50 Prompts)</h2>
-            <div class="prompt-grid" id="designPrompts"></div>
-        </div>
+    <h2>Art</h2>
+    <ul>
+        <li>Act as a visual artist. Create a concept for an abstract painting that represents the theme of time passing. Include color palette and medium.</li>
+        <li>Act as a sculpture artist. Design a conceptual sculpture to symbolize resilience, incorporating recycled materials.</li>
+        <li>Act as a digital artist. Develop an illustration style guide for a video game aimed at children, focusing on colorful and whimsical aesthetics.</li>
+    </ul>
 
-        <!-- Writing Prompts (50) -->
-        <div class="category-section" id="writing">
-            <h2 class="category-title"><i class="fas fa-pen"></i> Writing (50 Prompts)</h2>
-            <div class="prompt-grid" id="writingPrompts"></div>
-        </div>
+    <h2>Productivity</h2>
+    <ul>
+        <li>Act as a productivity coach. Create a daily routine that balances work, exercise, and leisure for someone working remotely in a tech job.</li>
+        <li>Act as a time management expert. Suggest 5 strategies to minimize procrastination and enhance focus during long work hours.</li>
+        <li>Act as a productivity strategist. Design a weekly planning template that helps prioritize tasks and maintain momentum throughout the week.</li>
+    </ul>
 
-        <!-- Marketing Prompts (50) -->
-        <div class="category-section" id="marketing">
-            <h2 class="category-title"><i class="fas fa-bullhorn"></i> Marketing (50 Prompts)</h2>
-            <div class="prompt-grid" id="marketingPrompts"></div>
-        </div>
+    <h2>Education</h2>
+    <ul>
+        <li>Act as an instructional designer. Design a lesson plan for teaching high school students about climate change, incorporating interactive activities and current research.</li>
+        <li>Act as a teacher with 20 years of experience. Suggest 5 techniques for improving student engagement in online classes, especially for high school students.</li>
+        <li>Act as an educational consultant. Develop a guide on how to integrate technology into the classroom to enhance learning experiences for elementary school students.</li>
+    </ul>
 
-        <!-- Art Prompts (50) -->
-        <div class="category-section" id="art">
-            <h2 class="category-title"><i class="fas fa-palette"></i> Art (50 Prompts)</h2>
-            <div class="prompt-grid" id="artPrompts"></div>
-        </div>
+    <h2>Health</h2>
+    <ul>
+        <li>Act as a fitness coach. Create a beginner’s workout plan for someone looking to get in shape and improve overall health in 30 days.</li>
+        <li>Act as a nutritionist. Design a meal plan for someone who is trying to lose weight while maintaining muscle mass, including healthy snacks.</li>
+        <li>Act as a mental wellness coach. Suggest 5 mindfulness techniques for reducing stress and improving focus throughout the day.</li>
+    </ul>
 
-        <!-- Productivity Prompts (50) -->
-        <div class="category-section" id="productivity">
-            <h2 class="category-title"><i class="fas fa-tasks"></i> Productivity (50 Prompts)</h2>
-            <div class="prompt-grid" id="productivityPrompts"></div>
-        </div>
+    <h2>Fun</h2>
+    <ul>
+        <li>Act as a game designer. Create the rules for a card game that teaches children about sustainability in a fun, interactive way.</li>
+        <li>Act as a hobby coach. Suggest 5 creative DIY projects to help someone relieve stress during the weekend.</li>
+        <li>Act as a puzzle designer. Create a challenging escape room concept that takes place in a mysterious library, complete with clues and puzzles.</li>
+    </ul>
 
-        <!-- Education Prompts (50) -->
-        <div class="category-section" id="education">
-            <h2 class="category-title"><i class="fas fa-graduation-cap"></i> Education (50 Prompts)</h2>
-            <div class="prompt-grid" id="educationPrompts"></div>
-        </div>
-
-        <!-- Health Prompts (50) -->
-        <div class="category-section" id="health">
-            <h2 class="category-title"><i class="fas fa-heartbeat"></i> Health (50 Prompts)</h2>
-            <div class="prompt-grid" id="healthPrompts"></div>
-        </div>
-
-        <!-- Fun Prompts (50) -->
-        <div class="category-section" id="fun">
-            <h2 class="category-title"><i class="fas fa-gamepad"></i> Fun (50 Prompts)</h2>
-            <div class="prompt-grid" id="funPrompts"></div>
-        </div>
-
-        <!-- Ad Space -->
-        <div class="ad-space">
-            <p>Advertisement Space (Example: "Get ChatGPT Plus - Your Affiliate Link")</p>
-        </div>
-    </div>
-
-    <script>
-        // ======================
-        // 500+ PROMPTS DATABASE
-        // ======================
-        const prompts = {
-            business: [
-                {
-                    id: "b1",
-                    title: "Startup Pitch Deck",
-                    text: "Create a 10-slide pitch deck for [startup name] targeting [investor type]. Include problem statement, solution, market size, business model, traction, team, and financial projections.",
-                    tools: ["ChatGPT", "Claude"]
-                },
-                {
-                    id: "b2",
-                    title: "SWOT Analysis",
-                    text: "Conduct a detailed SWOT analysis for [company] in [industry]. Include 5 points for each quadrant with data-driven insights and competitor comparisons.",
-                    tools: ["ChatGPT"]
-                },
-                {
-                    id: "b3",
-                    title: "Business Plan Outline",
-                    text: "Generate a comprehensive business plan outline for a [type of business]. Include executive summary, company description, market analysis, organization structure, product line, marketing plan, and funding request.",
-                    tools: ["ChatGPT", "Bard"]
-                },
-                // Add 47 more business prompts...
-                {
-                    id: "b50",
-                    title: "Crisis Management Plan",
-                    text: "Develop a crisis management plan for [company] facing [crisis type]. Include communication strategy, stakeholder management, and recovery steps.",
-                    tools: ["ChatGPT"]
-                }
-            ],
-            coding: [
-                {
-                    id: "c1",
-                    title: "Python API Wrapper",
-                    text: "Write a Python class that wraps the [API name] API with methods for [key functionalities]. Include error handling, rate limiting, and async support using the requests library.",
-                    tools: ["ChatGPT"]
-                },
-                {
-                    id: "c2",
-                    title: "React Optimization",
-                    text: "Analyze this React component and suggest 5 specific optimizations to improve rendering performance: [paste code]. Explain each recommendation with code examples.",
-                    tools: ["ChatGPT"]
-                },
-                // Add 48 more coding prompts...
-                {
-                    id: "c50",
-                    title: "SQL Query Optimization",
-                    text: "Optimize this SQL query for [database type]: [paste query]. Explain the bottlenecks and provide 3 alternative implementations with performance comparisons.",
-                    tools: ["ChatGPT"]
-                }
-            ],
-            design: [
-                {
-                    id: "d1",
-                    title: "Logo Design Brief",
-                    text: "Create a creative brief for a logo design for [company] in [industry]. Include brand values, color preferences, style references (minimalist/retro/etc.), and deliverables.",
-                    tools: ["ChatGPT", "Midjourney"]
-                },
-                // Add 49 more design prompts...
-                {
-                    id: "d50",
-                    title: "Packaging Design",
-                    text: "Generate design specifications for [product] packaging. Include dimensions, materials, color palette, typography, and regulatory requirements for [country].",
-                    tools: ["ChatGPT", "DALL-E"]
-                }
-            ],
-            // Continue with 7 more categories (writing, marketing, art, productivity, education, health, fun)
-            // Each with 50 real-world prompts
-        };
-
-        // ======================
-        // APP FUNCTIONALITY
-        // ======================
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load prompts for each category
-            for (const category in prompts) {
-                const container = document.getElementById(`${category}Prompts`);
-                if (container) {
-                    loadPrompts(category, container);
-                }
-            }
-
-            // Search functionality
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                for (const category in prompts) {
-                    const container = document.getElementById(`${category}Prompts`);
-                    if (container) {
-                        filterPrompts(category, container, searchTerm);
-                    }
-                }
-            });
-        });
-
-        // Load prompts into a category container
-        function loadPrompts(category, container) {
-            container.innerHTML = '';
-            prompts[category].forEach(prompt => {
-                const tools = prompt.tools.map(tool => 
-                    `<span class="tool">${tool}</span>`
-                ).join('');
-                
-                const card = document.createElement('div');
-                card.className = 'prompt-card';
-                card.innerHTML = `
-                    <span class="category">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
-                    <h3>${prompt.title}</h3>
-                    <p>${prompt.text}</p>
-                    <div class="tools">${tools}</div>
-                    <div class="actions">
-                        <button class="copy-btn" data-prompt="${prompt.text.replace(/"/g, '&quot;')}">
-                            <i class="fas fa-copy"></i> Copy
-                        </button>
-                    </div>
-                `;
-                
-                // Add copy functionality
-                const copyBtn = card.querySelector('.copy-btn');
-                copyBtn.addEventListener('click', function() {
-                    const promptText = this.getAttribute('data-prompt');
-                    navigator.clipboard.writeText(promptText);
-                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    this.classList.add('copied');
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-copy"></i> Copy';
-                        this.classList.remove('copied');
-                    }, 2000);
-                });
-                
-                container.appendChild(card);
-            });
-        }
-
-        // Filter prompts based on search term
-        function filterPrompts(category, container, searchTerm) {
-            const filtered = prompts[category].filter(prompt => 
-                prompt.title.toLowerCase().includes(searchTerm) || 
-                prompt.text.toLowerCase().includes(searchTerm)
-            );
-            
-            container.innerHTML = '';
-            if (filtered.length === 0) {
-                container.innerHTML = '<p>No matching prompts found in this category.</p>';
-                return;
-            }
-            
-            filtered.forEach(prompt => {
-                const tools = prompt.tools.map(tool => 
-                    `<span class="tool">${tool}</span>`
-                ).join('');
-                
-                const card = document.createElement('div');
-                card.className = 'prompt-card';
-                card.innerHTML = `
-                    <span class="category">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
-                    <h3>${prompt.title}</h3>
-                    <p>${prompt.text}</p>
-                    <div class="tools">${tools}</div>
-                    <div class="actions">
-                        <button class="copy-btn" data-prompt="${prompt.text.replace(/"/g, '&quot;')}">
-                            <i class="fas fa-copy"></i> Copy
-                        </button>
-                    </div>
-                `;
-                
-                const copyBtn = card.querySelector('.copy-btn');
-                copyBtn.addEventListener('click', function() {
-                    const promptText = this.getAttribute('data-prompt');
-                    navigator.clipboard.writeText(promptText);
-                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    this.classList.add('copied');
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-copy"></i> Copy';
-                        this.classList.remove('copied');
-                    }, 2000);
-                });
-                
-                container.appendChild(card);
-            });
-        }
-    </script>
 </body>
 </html>
