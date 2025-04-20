@@ -3,100 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>500+ AI Prompt Library</title>
+    <title>AI Prompt Library | Business, Coding, Design & More</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --dark: #1e1e2c;
+            --light: #f5f5fa;
+            --success: #4CAF50;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: linear-gradient(135deg, var(--light) 0%, #e6e6f0 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+        }
+        .tagline {
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        /* Quick Navigation */
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .category-nav a {
+            background: rgba(110, 72, 170, 0.1);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .category-nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        /* Search */
+        .search-container {
+            margin: 1.5rem auto 2rem;
+            max-width: 800px;
+            position: relative;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+        /* Category Sections */
+        .category-section {
+            margin: 3rem 0;
+            scroll-margin-top: 20px;
+        }
+        .category-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.5rem;
+        }
+        .category-title i {
+            font-size: 1.3rem;
+        }
+        /* Prompt Cards */
+        .prompt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .prompt-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+        .prompt-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .prompt-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        .prompt-card p {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            justify-content: center;
+        }
+        .copy-btn:hover {
+            background: var(--secondary);
+        }
+        .copy-btn.copied {
+            background: var(--success);
+        }
+        /* Ad Spaces */
+        .ad-space {
+            background: #f8f9fa;
+            border: 1px dashed #ccc;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 8px;
+        }
+        .ad-space p {
+            color: #666;
+            font-style: italic;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .prompt-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>500+ AI Prompt Library</h1>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> AI Prompt Library</h1>
+            <p class="tagline">Strategic prompts for ChatGPT, Midjourney & more</p>
+        </header>
 
-    <h2>Business</h2>
-    <ul>
-        <li>Act as a business strategist with over 15 years of experience. Develop a roadmap for scaling a tech startup that focuses on AI-driven solutions for e-commerce.</li>
-        <li>Act as a seasoned entrepreneur and provide a detailed market entry strategy for a new SaaS product aimed at small to mid-sized businesses in the health industry.</li>
-        <li>Act as a business consultant and identify 5 untapped growth opportunities for a medium-sized company in the logistics sector. Provide a step-by-step plan for execution.</li>
-        <li>Act as a management expert with 20 years in team leadership. Create an employee engagement plan that fosters innovation and collaboration in a remote-first company.</li>
-        <li>Act as a corporate strategist and analyze the competitive landscape for an e-commerce business selling eco-friendly products. What strategic moves should they consider to outperform competitors?</li>
-        <li>Act as a brand consultant and suggest a comprehensive brand positioning strategy for a new fintech startup aiming to target millennials.</li>
-        <li>Act as a product manager with over 10 years in the tech industry. Outline a roadmap for launching a new product in the AR/VR space, including feature prioritization and market testing.</li>
-        <li>Act as a financial analyst and create a detailed financial projection model for a newly established SaaS business. Include revenue, expenses, and growth assumptions for the next 5 years.</li>
-        <li>Act as a strategic marketing leader and devise a viral marketing campaign targeting Gen Z consumers for a new vegan cosmetics brand.</li>
-        <li>Act as an expert in business development. Suggest 5 new revenue streams for a traditional brick-and-mortar retail business looking to diversify its income sources.</li>
-    </ul>
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement Space (Place Google AdSense or affiliate links here)</p>
+        </div>
 
-    <h2>Coding</h2>
-    <ul>
-        <li>Act as a senior software engineer with 15 years of experience. Debug this JavaScript code and provide suggestions for improvement: [paste code].</li>
-        <li>Act as a programming mentor and create a learning path for a beginner who wants to master Python in 6 months. Include resources and projects.</li>
-        <li>Act as a full-stack developer. Suggest 5 improvements to optimize the performance of a Node.js backend API serving a large user base.</li>
-        <li>Act as a coding tutor with expertise in React. Provide a tutorial on how to implement lazy loading for a React application with code examples.</li>
-        <li>Act as a data scientist. Outline a step-by-step guide on how to clean and preprocess a messy dataset in Python using Pandas and NumPy.</li>
-        <li>Act as a senior developer with deep expertise in database optimization. Provide advice on how to speed up SQL queries for large datasets and improve indexing.</li>
-        <li>Act as a front-end engineer with 10 years of experience. Suggest 5 best practices for creating responsive UI/UX designs in React.</li>
-        <li>Act as a senior Android developer. Explain the process of implementing push notifications in a Kotlin-based app, and offer tips for improving delivery rates.</li>
-        <li>Act as a cloud architect. Design an AWS infrastructure for hosting a scalable and secure e-commerce platform, ensuring cost-efficiency and high availability.</li>
-        <li>Act as an experienced DevOps engineer. Suggest strategies for automating the deployment of microservices with Docker and Kubernetes.</li>
-    </ul>
+        <!-- Quick Navigation -->
+        <div class="category-nav">
+            <a href="#business"><i class="fas fa-briefcase"></i> Business</a>
+            <a href="#coding"><i class="fas fa-code"></i> Coding</a>
+            <a href="#design"><i class="fas fa-paint-brush"></i> Design</a>
+            <a href="#writing"><i class="fas fa-pen"></i> Writing</a>
+            <a href="#marketing"><i class="fas fa-bullhorn"></i> Marketing</a>
+            <a href="#art"><i class="fas fa-palette"></i> Art</a>
+            <a href="#productivity"><i class="fas fa-tasks"></i> Productivity</a>
+            <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="#health"><i class="fas fa-heartbeat"></i> Health</a>
+            <a href="#fun"><i class="fas fa-gamepad"></i> Fun</a>
+        </div>
 
-    <h2>Design</h2>
-    <ul>
-        <li>Act as a product designer. Design a user-friendly onboarding experience for a new meditation app that guides users through the setup process with minimal friction.</li>
-        <li>Act as a graphic designer. Develop a series of illustrations for an online fitness program that targets beginners, using vibrant and energetic color schemes.</li>
-        <li>Act as a UI/UX designer. Create a design for an e-commerce checkout page, focusing on reducing cart abandonment with clear CTA buttons, progress indicators, and secure payment options.</li>
-        <li>Act as a packaging designer. Create an eco-friendly packaging design for a line of organic skincare products, including considerations for sustainability and visual appeal.</li>
-        <li>Act as a brand designer. Design a visual identity for a tech startup specializing in virtual reality gaming, including logo, typography, and website layout.</li>
-    </ul>
+        <!-- Search -->
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search prompts (e.g., 'marketing', 'Python', 'design')...">
+        </div>
 
-    <h2>Writing</h2>
-    <ul>
-        <li>Act as a creative writing coach with a decade of experience. Develop a writing prompt that helps generate compelling character backstories for a dystopian novel.</li>
-        <li>Act as an author specializing in fantasy fiction. Write a character profile for a reluctant hero who embarks on a quest to save a mythical realm.</li>
-        <li>Act as a journalist. Develop a pitch for an article on sustainable fashion, focusing on key industry trends and emerging brands.</li>
-        <li>Act as a novelist. Write the first 500 words of a novel that starts with the sentence, “The last time I saw him, it was under the flickering streetlights.”</li>
-        <li>Act as a screenwriter. Outline the plot for a suspense-thriller movie set in a small coastal town. Focus on the main conflict and twist ending.</li>
-    </ul>
+        <!-- Business Prompts -->
+        <div class="category-section" id="business">
+            <h2 class="category-title">
+                <i class="fas fa-briefcase"></i> Business
+            </h2>
+            <div class="prompt-grid" id="businessPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-    <h2>Marketing</h2>
-    <ul>
-        <li>Act as a digital marketing strategist with over 10 years of experience. Develop a social media campaign targeting millennials for a new fitness brand.</li>
-        <li>Act as a content marketing expert. Create a blog post outline for a tech company’s website about the benefits of AI in streamlining business processes.</li>
-        <li>Act as a brand consultant. Suggest 5 strategies for repositioning a legacy brand to attract a younger demographic.</li>
-        <li>Act as a social media manager. Develop a month-long Instagram content calendar for a new vegan bakery, including post ideas and captions.</li>
-        <li>Act as a marketing guru. Develop a comprehensive influencer marketing strategy for a new sustainable fashion brand, including influencer selection and campaign goals.</li>
-    </ul>
+        <!-- Coding Prompts -->
+        <div class="category-section" id="coding">
+            <h2 class="category-title">
+                <i class="fas fa-code"></i> Coding
+            </h2>
+            <div class="prompt-grid" id="codingPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-    <h2>Art</h2>
-    <ul>
-        <li>Act as a visual artist. Create a concept for an abstract painting that represents the theme of time passing. Include color palette and medium.</li>
-        <li>Act as a sculpture artist. Design a conceptual sculpture to symbolize resilience, incorporating recycled materials.</li>
-        <li>Act as a digital artist. Develop an illustration style guide for a video game aimed at children, focusing on colorful and whimsical aesthetics.</li>
-    </ul>
+        <!-- Design Prompts -->
+        <div class="category-section" id="design">
+            <h2 class="category-title">
+                <i class="fas fa-paint-brush"></i> Design
+            </h2>
+            <div class="prompt-grid" id="designPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-    <h2>Productivity</h2>
-    <ul>
-        <li>Act as a productivity coach. Create a daily routine that balances work, exercise, and leisure for someone working remotely in a tech job.</li>
-        <li>Act as a time management expert. Suggest 5 strategies to minimize procrastination and enhance focus during long work hours.</li>
-        <li>Act as a productivity strategist. Design a weekly planning template that helps prioritize tasks and maintain momentum throughout the week.</li>
-    </ul>
+        <!-- Writing Prompts -->
+        <div class="category-section" id="writing">
+            <h2 class="category-title">
+                <i class="fas fa-pen"></i> Writing
+            </h2>
+            <div class="prompt-grid" id="writingPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-    <h2>Education</h2>
-    <ul>
-        <li>Act as an instructional designer. Design a lesson plan for teaching high school students about climate change, incorporating interactive activities and current research.</li>
-        <li>Act as a teacher with 20 years of experience. Suggest 5 techniques for improving student engagement in online classes, especially for high school students.</li>
-        <li>Act as an educational consultant. Develop a guide on how to integrate technology into the classroom to enhance learning experiences for elementary school students.</li>
-    </ul>
+        <!-- Marketing Prompts -->
+        <div class="category-section" id="marketing">
+            <h2 class="category-title">
+                <i class="fas fa-bullhorn"></i> Marketing
+            </h2>
+            <div class="prompt-grid" id="marketingPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-    <h2>Health</h2>
-    <ul>
-        <li>Act as a fitness coach. Create a beginner’s workout plan for someone looking to get in shape and improve overall health in 30 days.</li>
-        <li>Act as a nutritionist. Design a meal plan for someone who is trying to lose weight while maintaining muscle mass, including healthy snacks.</li>
-        <li>Act as a mental wellness coach. Suggest 5 mindfulness techniques for reducing stress and improving focus throughout the day.</li>
-    </ul>
+        <!-- Art Prompts -->
+        <div class="category-section" id="art">
+            <h2 class="category-title">
+                <i class="fas fa-palette"></i> Art
+            </h2>
+            <div class="prompt-grid" id="artPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-    <h2>Fun</h2>
-    <ul>
-        <li>Act as a game designer. Create the rules for a card game that teaches children about sustainability in a fun, interactive way.</li>
-        <li>Act as a hobby coach. Suggest 5 creative DIY projects to help someone relieve stress during the weekend.</li>
-        <li>Act as a puzzle designer. Create a challenging escape room concept that takes place in a mysterious library, complete with clues and puzzles.</li>
-    </ul>
+        <!-- Productivity Prompts -->
+        <div class="category-section" id="productivity">
+            <h2 class="category-title">
+                <i class="fas fa-tasks"></i> Productivity
+            </h2>
+            <div class="prompt-grid" id="productivityPrompts">
+                <!-- Prompts will be inserted here by JavaScript -->
+            </div>
+        </div>
 
-</body>
-</html>
+        <!-- Education Prompts -->
+        <div class="category-section" id="education">
+            <h2 class="category-title">
+                <i class="fas fa-graduation-cap"></i> Education
+            </h2>
+            <div class="
